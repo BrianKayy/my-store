@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Products.css"
 
-const Products = ({productItems}) => {
+const Products = ({productItems, handleAddProduct}) => {
   return (
     <div className="products">
         {productItems.map((productItem) =>(
@@ -18,7 +18,11 @@ const Products = ({productItems}) => {
                        ${productItem.price}
                  </div>
                  <div>
-                    <button className="product-add">Add to Cart</button>
+                    <button
+                     className="product-add"
+                     onClick = { ()=> handleAddProduct(productItem)}
+                     >
+                      Add to Cart</button>
                  </div>
             </div>
         ))} 
@@ -26,4 +30,4 @@ const Products = ({productItems}) => {
   )
 }
 
-export default Products
+export default Products;

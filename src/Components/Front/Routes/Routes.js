@@ -6,18 +6,22 @@ import Cart from "../Cart/Cart";
 import { Switch, Route } from 'react-router-dom';
 
 
-const Routes = ({productItems, cartItems}) => {
+const Routes = ({productItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance }) => {
     return (    
         <div>
            <Switch>
             <Route path="/" exact>
-                   <Products  productItems ={productItems} />
+                   <Products  productItems ={productItems} handleAddProduct={handleAddProduct} />
             </Route>
             <Route path="/signup" exact>
                      <Signup />
             </Route>
             <Route path='/cart' exact>
-                  <Cart cartItems={cartItems}/>
+                  <Cart cartItems={cartItems} 
+                  handleAddProduct={handleAddProduct}
+                  handleRemoveProduct={ handleRemoveProduct}
+                  handleCartClearance={handleCartClearance}
+                  />
             </Route>
             </Switch>
          </div>
